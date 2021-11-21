@@ -12,12 +12,9 @@ const itemsReduser = (state = initialStoreItem, { type, payload }) => {
   switch (type) {
     case "contact/add":
       const existingContact = state.some(({ name }) => name === payload.name);
-      return (
-        !existingContact
-          ? [...state, payload]
-          : alert(`Пользователь с именем ${payload.name} уже добавлен`),
-        state
-      );
+      return !existingContact
+        ? [...state, payload]
+        : (alert(`Пользователь с именем ${payload.name} уже добавлен`), state);
 
     case "contact/delete":
       return state.filter(({ id }) => id !== payload);
