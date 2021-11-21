@@ -1,13 +1,13 @@
 import { useState } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/action";
 
 import s from "./ContactForm.module.css";
 
-function ContactForm({ onSumbit }) {
+export default function ContactForm() {
   const [name, setName] = useState("");
   const [number, setNumder] = useState("");
+  const dispatch = useDispatch();
 
   const handelChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +28,7 @@ function ContactForm({ onSumbit }) {
   const handelSubmit = (e) => {
     e.preventDefault();
 
-    onSumbit(name, number);
+    dispatch(addContact(name, number));
     console.log(name, number);
     toСlear();
   };
@@ -74,12 +74,8 @@ function ContactForm({ onSumbit }) {
   );
 }
 
-ContactForm.propTypes = {
-  onSumbit: PropTypes.func.isRequired,
-};
+// const mapDispatchToProps = (dispatch) => ({
+//   onSumbit: (name, number) => dispatch(addContact(name, number)),
+// });
 
-const mapDispatchToProps = (dispatch) => ({
-  onSumbit: (name, number) => dispatch(addContact(name, number)),
-});
-
-export default connect(null, mapDispatchToProps)(ContactForm);
+// export default connect(null, mapDispatchToProps)(ContactForm);

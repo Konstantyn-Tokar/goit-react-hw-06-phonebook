@@ -1,24 +1,17 @@
-import shortid from "shortid";
+import { createAction, nanoid } from "@reduxjs/toolkit";
 
-const addContact = (name, number) => {
+const addContact = createAction("contact/add", (name, number) => {
   return {
-    type: "contact/add",
     payload: {
-      id: shortid.generate(),
+      id: nanoid(),
       name,
       number,
     },
   };
-};
-
-const deleteContact = (id) => ({
-  type: "contact/delete",
-  payload: id,
 });
 
-const handelChangeFilter = (value) => ({
-  type: "contact/filter",
-  payload: value,
-});
+const deleteContact = createAction("contact/delete");
+
+const handelChangeFilter = createAction("contact/filter");
 
 export { addContact, deleteContact, handelChangeFilter };
