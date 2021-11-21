@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-04-hooks",
+  "name": "goit-react-hw-06-phonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Konstantyn-Tokar.github.io/goit-react-hw-04-hooks-phonebook",
+  "homepage": "https://Konstantyn-Tokar.github.io/goit-react-hw-06-phonebook",
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
